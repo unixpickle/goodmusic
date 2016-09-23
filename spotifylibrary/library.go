@@ -88,7 +88,7 @@ func requestTracks(key string) (artists <-chan string, errs <-chan error) {
 			if respData.Next == "" {
 				break
 			}
-			req, err = http.NewRequest("GET", myTracksAPI, nil)
+			req, err = http.NewRequest("GET", respData.Next, nil)
 			if err != nil {
 				errsChan <- err
 				return
