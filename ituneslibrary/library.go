@@ -72,10 +72,10 @@ func (l *Library) Artists() []string {
 	return l.artists
 }
 
-// Plays returns the total number of times the user has
+// Count returns the total number of times the user has
 // played a song by the given artist, as of when the
 // library was loaded.
-func (l *Library) Plays(artist string) int {
+func (l *Library) Count(artist string) int {
 	return l.plays[artist]
 }
 

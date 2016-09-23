@@ -16,14 +16,13 @@ type Profile map[int64]int
 // each user in the Dataset "agrees" with the Library on
 // artist preferences.
 //
-// The minPlays argument specifies how many plays an
-// artist in the Library must have to be considered while
-// looking for corresponding artists in the Dataset.
-func LibraryProfile(l Library, d Dataset, minPlays int) Profile {
+// The minCount argument specifies the minimum Count() for
+// an artist in the Library to be considered while looking
+// for corresponding artists in the Dataset.
+func LibraryProfile(l Library, d Dataset, minCount int) Profile {
 	res := Profile{}
 	for artistInfo := range d.Artists() {
-		plays := l.Plays(artistInfo.Name)
-		if plays > minPlays {
+		if l.Count(artistInfo.Name) >= minCount {
 			for _, user := range artistInfo.Users {
 				res[user]++
 			}

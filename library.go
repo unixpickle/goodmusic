@@ -7,7 +7,9 @@ type Library interface {
 	// music library.
 	Artists() []string
 
-	// Plays returns the collective number of times the
-	// given artist's songs have been played.
-	Plays(artist string) int
+	// Count returns some metric of how much the user has
+	// listened to the artist.
+	// This might be number of plays, some sort of rating,
+	// or the number of songs by the artist.
+	Count(artist string) int
 }
